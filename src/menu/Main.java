@@ -56,6 +56,7 @@ public class Main {
                             if (AccountManage.currentAccount.getRole().equalsIgnoreCase("Admin")) {
                                 try {
                                     while (true) {
+                                        System.out.println(ANSI_CYAN + "");
                                         System.out.println("╔===================================================╗");
                                         System.out.println("║       ▂ ▃ ▅ ▆ █ QUẢN LÝ SAY MUSIC █ ▆ ▅ ▃ ▂       ║");
                                         System.out.println("╠===================================================╣");
@@ -67,7 +68,7 @@ public class Main {
                                         System.out.println("║>[7]. Đổi mật khẩu                                 ║");
                                         System.out.println("║>[0]. Logout                                       ║");
                                         System.out.println("╚===================================================╝");
-                                        System.out.println("[\uD83D\uDD11] Nhập lựa chọn:");
+                                        System.out.println("[\uD83D\uDD11] Nhập lựa chọn:" + ANSI_RESET);
 
                                         try {
                                             int choice1 = Integer.parseInt(scanner.nextLine());
@@ -138,7 +139,7 @@ public class Main {
                                                     FileSong.writeToFile(songManage.getSongList());
                                                     break;
                                                 case 0:
-                                                    AccountManage.currentAccount = null;
+                                                    System.exit(0);
                                                 default:
                                                     throw new NumberFormatException();
                                             }
@@ -150,14 +151,14 @@ public class Main {
                                     }
                                 } catch (NumberFormatException | InputMismatchException e) {
                                     System.out.println();
-                                    System.out.println("⛔ Bạn nhập sai dữ liệu, mời nhập lại !!!");
+                                    System.err.println("⛔ Bạn nhập sai dữ liệu, mời nhập lại !!!");
                                     System.out.println("--------------------");
                                     System.out.println();
                                 }
                             } else {
                                 try {
                                     while (true) {
-                                        System.out.println("Đăng nhập thành công");
+                                        System.out.println(ANSI_BLUE + "Đăng nhập thành công");
                                         System.out.println("╔===================================================╗");
                                         System.out.println("║        ▂ ▃ ▅ ▆ █ SAY MUSIC.mp3 █ ▆ ▅ ▃ ▂          ║");
                                         System.out.println("╠===================================================╣");
@@ -166,11 +167,11 @@ public class Main {
                                         System.out.println("║>[3]. Đổi mật khẩu                                 ║");
                                         System.out.println("║>[0]. Thoát                                        ║");
                                         System.out.println("╚===================================================╝");
-                                        System.out.println("[\uD83D\uDD11] Nhập lựa chọn:");
+                                        System.out.println("[\uD83D\uDD11] Nhập lựa chọn:" + ANSI_RESET);
                                         int choice1 = scanner.nextInt();
                                         if (choice1 < 0 || choice1 > 3) {
                                             System.out.println();
-                                            System.out.println("⛔ Lựa chọn không tồn tại, mời bạn nhập lại !!!");
+                                            System.err.println("⛔ Lựa chọn không tồn tại, mời bạn nhập lại !!!");
                                             System.out.println("--------------------");
                                             System.out.println();
                                         }
@@ -203,7 +204,7 @@ public class Main {
                                                 break;
                                             }
                                             case 0: {
-                                                AccountManage.currentAccount = null;
+                                                System.exit(0);
                                             }
                                         }
                                     }
